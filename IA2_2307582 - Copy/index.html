@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+    <title>Login Page</title>
+</head>
+
+<body bgcolor="#2f25f5">
+
+    <script>
+        let counter = 0;
+
+        function inputTester() {
+
+            const sample_username = "AAABarber";
+            const sample_password = "BestBarber123";
+
+            let username = document.getElementById("username_input").value;
+            let password = document.getElementById("username_password").value;
+
+            // Increment attempt counter
+            counter++;
+
+            if (counter > 3) 
+			{
+				window.open("Error Page.html","_self");
+            } 
+			else 
+			{
+                if (username === sample_username && password === sample_password) 
+				{
+                    window.open("Products and Services.html","_self");
+                    counter = 0; // Reset counter after successful login
+                } 
+				else 
+				{
+                    alert("Incorrect username or password. Attempt " + counter + " of 3.");
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .border-text {
+            border: 2px solid red;
+            border-radius: 10px;
+        }
+
+        img {
+            width: 300px;
+            height: 200px;
+            margin-left: 50px;
+        }
+		
+		label {
+			font-family: Georgia;
+			font-size:50px;
+		}
+		button{
+			border: 5px solid red;
+			color: #2f25f5;
+			border-radius:25px;
+		}
+    </style>
+
+    <center>
+        <form name="LOGIN">
+            <fieldset style="width:30%;border: 5px solid black;">
+                <legend>
+                    <img src="../Assets/logo.png" alt="Triple A Cuts Logo">
+                </legend>
+
+                <label for="username">Username</label>
+                <br />
+                <input class="border-text" type="text" name="username" placeholder="Enter your username!" size="30" id="username_input" required>
+                <br /><br />
+                <label for="password(login)">Password</label>
+                <br />
+                <input class="border-text" type="password" name="password(login)" placeholder="Enter your password!"   size="30" id="username_password" required>
+                <br />
+
+                <br /><br />
+                <button id="user_submit" type="button" onclick="inputTester()">LOGIN</button>
+            </fieldset>
+        </form>
+    </center>
+
+</body>
+
+</html>
